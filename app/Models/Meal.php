@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Meal extends Model
 {
     use HasFactory;
     
-    public function getByLimit(lim $limit_count = 10)
+    public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->orderby('updated_at', 'DESC')->limit(limit_count)->get();
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }

@@ -33,11 +33,11 @@ Route::middleware('auth')->group(function () {
     //meal投稿関連のルーティング
     Route::get('/meals', [mealPostController::class, 'index'])->name('meal.index');
     //training投稿関連のルーティング
-    Route::get('/training', [trainingPostController::class, 'index'])->name('training.index');
+    Route::get('/trainings', [trainingPostController::class, 'index'])->name('training.index');
     //sleep投稿関連のルーティング
-    Route::get('/sleep', [sleepPostController::class, 'index'])->name('sleep.index');
+    Route::get('/sleeps', [sleepPostController::class, 'index'])->name('sleep.index');
     //weight投稿関連のルーティング
-    Route::get('/weight', [weightPostController::class, 'index'])->name('weight.index');
+    Route::get('/weights', [weightPostController::class, 'index'])->name('weight.index');
 });
 
 require __DIR__.'/auth.php';
