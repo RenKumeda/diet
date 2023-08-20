@@ -32,12 +32,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //meal投稿関連のルーティング
     Route::get('/meals', [mealPostController::class, 'index'])->name('meal.index');
+    //meal投稿の詳細画面を表示するルーティング
+    Route::get('/meals/{meal}', [mealPostController::class, 'show'])->name('meal.show');
     //training投稿関連のルーティング
     Route::get('/trainings', [trainingPostController::class, 'index'])->name('training.index');
+    //training投稿の詳細画面を表示するルーティング
+    Route::get('/trainings/{training}', [trainingPostController::class, 'show'])->name('training.show');
     //sleep投稿関連のルーティング
     Route::get('/sleeps', [sleepPostController::class, 'index'])->name('sleep.index');
+    //sleep投稿の詳細画面を表示するルーティング
+    Route::get('/sleeps/{sleep}', [sleepPostController::class, 'show'])->name('sleep.show');
     //weight投稿関連のルーティング
     Route::get('/weights', [weightPostController::class, 'index'])->name('weight.index');
+    //weight投稿の詳細画面を表示するルーティング
+    Route::get('/weights/{weight}', [weightPostController::class, 'show'])->name('weight.show');
 });
 
 require __DIR__.'/auth.php';

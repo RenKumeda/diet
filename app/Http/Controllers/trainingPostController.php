@@ -11,4 +11,9 @@ class trainingPostController extends Controller
     {
         return view('Training.index')->with(['trainings' => $training->getPaginateByLimit()]);
     }
+    
+    public function show(Training $training)
+    {
+        return view('Training.show')->with(['training' => $training]);
+    }
 }
