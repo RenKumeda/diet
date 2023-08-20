@@ -11,8 +11,8 @@
         <div class='sleeps'>
             @foreach ($sleeps as $sleep)
                 <div class='sleep'>
-                    <h2 class='title'>Title</h2>
-                    <p class='body'>This is a sample body.</p>
+                    <a href='/sleep/{{ $sleep->id }}'><h2 class='title'>{{ $sleep->title }}</h2></a>
+                    <p class='body'>{{ $sleep->body }}</p>
                 </div>
             @endforeach
         </div>

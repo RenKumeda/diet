@@ -11,8 +11,8 @@
         <div class='weights'>
             @foreach ($weights as $weight)
                 <div class='weight'>
-                    <h2 class='title'>Title</h2>
-                    <p class='body'>This is a sample body.</p>
+                    <a href='/weights/{{ $weight->id }}'><h2 class='title'>{{ $weight->title }}</h2></a>
+                    <p class='body'>{{ $weight->body }}</p>
                 </div>
             @endforeach
         </div>

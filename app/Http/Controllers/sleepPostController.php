@@ -11,4 +11,9 @@ class sleepPostController extends Controller
     {
         return view('Sleep.index')->with(['sleeps' => $sleep->getPaginateByLimit()]);
     }
+    
+    public function show(Sleep $sleep)
+    {
+        return view('Sleep.show')->with(['sleep' => $sleep]);
+    }
 }

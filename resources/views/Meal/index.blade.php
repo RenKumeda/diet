@@ -11,13 +11,13 @@
         <div class='meals'>
             @foreach ($meals as $meal)
                 <div class='meal'>
-                    <h2 class='title'>Title</h2>
-                    <p class='body'>This is a sample body.</p>
+                    <a href='/meals/{{ $meal->id }}'><h2 class='title'>{{ $meal->title }}</h2></a>
+                    <p class='body'>{{ $meal->body }}</p>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
-            {{ $meals->links() }}
+            {{ $meals->links()}}
         </div>
     </body>
 </html>

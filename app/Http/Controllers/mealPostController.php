@@ -11,4 +11,9 @@ class mealPostController extends Controller
     {
         return view('Meal.index')->with(['meals' => $meal->getPaginateByLimit()]);
     }
+    
+    public function show(Meal $meal)
+    {
+        return view('Meal.show')->with(['meal' => $meal]);
+    }
 }

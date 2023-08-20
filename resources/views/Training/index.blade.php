@@ -7,12 +7,17 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>training</h1>
-        <div class='posts'>
-            <div class='post'>
-                <h2 class='title'>Title</h2>
-                <p class='body'>This is a sample body.</p>
-            </div>
+        <h1>Training</h1>
+        <div class='trainings'>
+            @foreach ($trainings as $training)
+                <div class='training'>
+                    <a hrem='/trainings/{{ $training->id }}'><h2 class='title'>{{ $training->title }}</h2></a>
+                    <p class='body'>{{ $training->body }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $trainings->links()}}
         </div>
     </body>
 </html>
