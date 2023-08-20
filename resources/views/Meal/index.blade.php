@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Meal</h1>
-        <div class='meals'
+        <div class='meals'>
             @foreach ($meals as $meal)
                 <div class='meal'>
                     <h2 class='title'>Title</h2>
