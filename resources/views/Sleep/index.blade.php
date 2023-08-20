@@ -7,12 +7,17 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>training</h1>
-        <div class='posts'>
-            <div class='post'>
-                <h2 class='title'>Title</h2>
-                <p class='body'>This is a sample body.</p>
-            </div>
+        <h1>Sleep</h1>
+        <div class='sleeps'>
+            @foreach ($sleeps as $sleep)
+                <div class='sleep'>
+                    <h2 class='title'>Title</h2>
+                    <p class='body'>This is a sample body.</p>
+                </div>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $sleeps->links() }}
         </div>
     </body>
 </html>

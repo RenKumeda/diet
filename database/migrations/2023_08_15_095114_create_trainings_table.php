@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->integer('time');
-            $table->integer('carorie');
+            $table->integer('calorie');
             $table->integer('goal');
             $table->timestamps();
         });
