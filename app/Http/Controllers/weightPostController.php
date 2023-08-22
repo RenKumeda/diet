@@ -12,6 +12,11 @@ class weightPostController extends Controller
         return view('Weight.index')->with(['weights' => $weight->getPaginateByLimit()]);
     }
     
+    public function create()
+    {
+        return view('Weight.create');
+    }
+    
     public function show(Weight $weight)
     {
         return view('Weight.show')->with(['weight' => $weight]);

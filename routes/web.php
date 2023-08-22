@@ -31,21 +31,31 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //meal投稿関連のルーティング
-    Route::get('/meals', [mealPostController::class, 'index'])->name('meal.index');
+    Route::get('/meals', [mealPostController::class, 'index'])->name('Meal.index');
+    //meal投稿保存のルーティング
+    Route::post('/meals', [mealPostController::class, 'store'])->name('Meal.store');
+    //meal投稿作成画面を表示するルーティング
+    Route::get('/meal/create', [mealPostController::class, 'create']);
     //meal投稿の詳細画面を表示するルーティング
-    Route::get('/meals/{meal}', [mealPostController::class, 'show'])->name('meal.show');
+    Route::get('/Meal/{meal}', [mealPostController::class, 'show'])->name('Meal.show');
     //training投稿関連のルーティング
-    Route::get('/trainings', [trainingPostController::class, 'index'])->name('training.index');
+    Route::get('/trainings', [trainingPostController::class, 'index'])->name('Training.index');
+    //ttraining投稿作成画面を表示するルーティング
+    Route::get('/Training/create', [trainingPostController::class, 'create'])->name('Training.create');
     //training投稿の詳細画面を表示するルーティング
-    Route::get('/trainings/{training}', [trainingPostController::class, 'show'])->name('training.show');
+    Route::get('/Training/{training}', [trainingPostController::class, 'show'])->name('Training.show');
     //sleep投稿関連のルーティング
-    Route::get('/sleeps', [sleepPostController::class, 'index'])->name('sleep.index');
+    Route::get('/sleeps', [sleepPostController::class, 'index'])->name('Sleep.index');
+    //sleep投稿作成画面を表示するルーティング
+    Route::get('/Sleep/create', [sleepPostController::class, 'create'])->name('Sleep.create');
     //sleep投稿の詳細画面を表示するルーティング
-    Route::get('/sleeps/{sleep}', [sleepPostController::class, 'show'])->name('sleep.show');
+    Route::get('/Sleep/{sleep}', [sleepPostController::class, 'show'])->name('Sleep.show');
     //weight投稿関連のルーティング
-    Route::get('/weights', [weightPostController::class, 'index'])->name('weight.index');
+    Route::get('/weights', [weightPostController::class, 'index'])->name('Weight.index');
+    //weight投稿作成画面を表示するルーティング
+    Route::get('/Weight/create', [weightPostController::class, 'create'])->name('Weight.create');
     //weight投稿の詳細画面を表示するルーティング
-    Route::get('/weights/{weight}', [weightPostController::class, 'show'])->name('weight.show');
+    Route::get('/Weight/{weight}', [weightPostController::class, 'show'])->name('Weight.show');
 });
 
 require __DIR__.'/auth.php';

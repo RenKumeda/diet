@@ -8,11 +8,12 @@
     </head>
     <body>
         <h1>Training</h1>
-        <div class='trainings'>
+        <a href="/Training.create">create</a>
+        <div class="trainings">
             @foreach ($trainings as $training)
-                <div class='training'>
-                    <a hrem='/trainings/{{ $training->id }}'><h2 class='title'>{{ $training->title }}</h2></a>
-                    <p class='body'>{{ $training->body }}</p>
+                <div class="training">
+                    <a hrem="/trainings/{{ $training->id }}"><h2 class='title'>{{ $training->title }}</h2></a>
+                    <p class="body">{{ $training->body }}</p>
                 </div>
             @endforeach
         </div>

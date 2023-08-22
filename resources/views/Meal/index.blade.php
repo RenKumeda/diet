@@ -8,11 +8,21 @@
     </head>
     <body>
         <h1>Meal</h1>
+        <a href="/meal/create">create</a>
         <div class='meals'>
             @foreach ($meals as $meal)
                 <div class='meal'>
-                    <a href='/meals/{{ $meal->id }}'><h2 class='title'>{{ $meal->title }}</h2></a>
-                    <p class='body'>{{ $meal->body }}</p>
+                    <a href="/meals/{{ $meal->id }}"><h2 class="title">{{ $meal->meal }}</h2></a>
+                    <p class="">{{ $meal->date }}</p>
+                    @if($meal->time == 1)
+                        <p>朝</p>
+                    @elseif($meal->time == 2)
+                        <p>昼</p>
+                    @elseif($meal->time == 3)
+                        <p>夜</p>
+                    @endif
+                    <p class="">{{ $meal->calorie }}kcal</p>
+                    <p class="">{{ $meal->goal }}kcal</p>
                 </div>
             @endforeach
         </div>
