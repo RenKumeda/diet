@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->enum('time', ["朝", "昼", "夜"]);
+            $table->integer('time');
             $table->string('meal');
             $table->integer('calorie');
             $table->integer('goal');

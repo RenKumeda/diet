@@ -7,16 +7,16 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class='title'>
+        <h1 class="title">
             {{ $weight->title }}
         </h1>
-        <div class='content'>
-            <div class='content_weight'>
+        <div class="content">
+            <div class="content_weight">
                 <h3>本文</h3>
-                <a class='body'>{{ $weight->body }}</a>
+                <a class="body">{{ $weight->body }}</a>
             </div>
         </div>
-        <div class='footer'>
+        <div class="footer">
             <a href='/'>戻る</a>
         </div>
     </body>

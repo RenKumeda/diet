@@ -8,15 +8,16 @@
     </head>
     <body>
         <h1>weight</h1>
-        <div class='weights'>
+        <a href="/Weight.create">create</a>
+        <div class="weights">
             @foreach ($weights as $weight)
-                <div class='weight'>
-                    <a href='/weights/{{ $weight->id }}'><h2 class='title'>{{ $weight->title }}</h2></a>
-                    <p class='body'>{{ $weight->body }}</p>
+                <div class="weight">
+                    <a href="/weights/{{ $weight->id }}"><h2 class='title'>{{ $weight->title }}</h2></a>
+                    <p class="body">{{ $weight->body }}</p>
                 </div>
             @endforeach
         </div>
-        <div class='paginate'>
+        <div class="paginate">
             {{ $weights->links() }}
         </div>
     </body>

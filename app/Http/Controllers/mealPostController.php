@@ -12,6 +12,18 @@ class mealPostController extends Controller
         return view('Meal.index')->with(['meals' => $meal->getPaginateByLimit()]);
     }
     
+    public function create()
+    {
+        return view('Meal.create');
+    }
+    
+    public function store(Meal $meal, Request $request)
+    {
+        $input = $request['meal'];
+        $meal->fill($input)->save();
+        return redirect('/meals');
+    }
+    
     public function show(Meal $meal)
     {
         return view('Meal.show')->with(['meal' => $meal]);
