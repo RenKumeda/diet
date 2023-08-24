@@ -17,6 +17,13 @@ class weightPostController extends Controller
         return view('Weight.create');
     }
     
+    public function store(Weight $weight, Request $request)
+    {
+        $input = $request['weight'];
+        $weight->fill($input)->save();
+        return redirect('/weights');
+    }
+    
     public function show(Weight $weight)
     {
         return view('Weight.show')->with(['weight' => $weight]);

@@ -7,20 +7,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <form action="/sleep" method="SLEEP">
+        <form action="/sleeps" method="POST">
            @csrf
-            <div class="title">
-               <h1>Title</h1>
-               <input type="text" name="sleep[title]" placeholder="タイトル"/>
-            </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="sleeo[body]" placeholder="本文"></textarea>
-            </div>
-            <input type="submit" value="store"/>
+           <h2>日時</h2>
+        <input type="date" name="sleep[date]"/>
+            <h2>睡眠時間</h2>
+        <input type="number" name="sleep[time]"/>
+            <h2>目標時間</h2>
+        <input type="number" name="sleep[goal]"/>
+        <input type="submit" value="store"/>
         </form>
         <div class="footer">
-            <a href='/'>戻る</a>
+            <a href='/sleeps'>戻る</a>
         </div>
     </body>
 </html>

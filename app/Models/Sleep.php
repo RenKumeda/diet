@@ -9,6 +9,12 @@ class Sleep extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'date',
+        'time',
+        'goal',
+        ];
+    
     public function getPaginateByLimit(int $limit_count = 5)
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);

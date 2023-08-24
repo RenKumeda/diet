@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->string('training');
             $table->date('date');
-            $table->integer('time');
+            $table->time('time');
             $table->integer('calorie');
             $table->integer('goal');
             $table->timestamps();

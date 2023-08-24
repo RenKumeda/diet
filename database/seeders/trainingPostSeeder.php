@@ -16,8 +16,9 @@ class trainingPostSeeder extends Seeder
     public function run()
     {
         DB::table('trainings')->insert([
+            'training' => 'run',
             'date' => '2023-08-18',
-            'time' => 20, 
+            'time' => '00:20:00', 
             'calorie' => 100,
             'goal' => 300,
             ]);

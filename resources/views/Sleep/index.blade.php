@@ -8,12 +8,14 @@
     </head>
     <body>
         <h1>Sleep</h1>
-        <a href="/Sleep.create">create</a>
+        <a href="/sleep/create">create</a>
         <div class="sleeps">
             @foreach ($sleeps as $sleep)
                 <div class="sleep">
-                    <a href="/sleep/{{ $sleep->id }}"><h2 class='title'>{{ $sleep->title }}</h2></a>
-                    <p class="body">{{ $sleep->body }}</p>
+                    <a href="/sleep/{{ $sleep->id }}"></a>
+                    <p class="">{{ $sleep->date }}</p>
+                    <p class="">{{ $sleep->time }}h</p>
+                    <p class="">{{ $sleep->goal }}h</p>
                 </div>
             @endforeach
         </div>

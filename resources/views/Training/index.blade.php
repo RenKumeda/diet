@@ -8,12 +8,15 @@
     </head>
     <body>
         <h1>Training</h1>
-        <a href="/Training.create">create</a>
+        <a href="/training/create">create</a>
         <div class="trainings">
             @foreach ($trainings as $training)
                 <div class="training">
-                    <a hrem="/trainings/{{ $training->id }}"><h2 class='title'>{{ $training->title }}</h2></a>
-                    <p class="body">{{ $training->body }}</p>
+                    <a href="/trainings/{{ $training->id }}"><h2 class='title'>{{ $training->training }}</h2></a>
+                    <p class="">{{ $training->date }}</p>
+                    <p class="">{{ $training->time }}</p>
+                    <p class="">{{ $training->calorie }}kcal</p>
+                    <p class="">{{ $training->goal }}kcal</p>
                 </div>
             @endforeach
         </div>

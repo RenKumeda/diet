@@ -7,20 +7,21 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <form action="/weights" method="WEIGHT">
+        <form action="/weights" method="POST">
            @csrf
             <div class="title">
-               <h1>Title</h1>
-               <input type="text" name="weight[title]" placeholder="タイトル"/>
-            </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="weight[body]" placeholder="本文"></textarea>
-            </div>
+               <h2>日時</h2>
+            <input type="date" name="weight[date]"/>
+                <h2>現体重</h2>
+            <input type="nymber" name="weight[now]"/>
+                <h2>目標体重</h2>
+            <input type="nymberl" name="weight[goal]"/>
+                <h2>目標との差</h2>
+            <input type="number" name="weight[difference]"/>
             <input type="submit" value="store"/>
         </form>
         <div class="footer">
-            <a href='/'>戻る</a>
+            <a href='/weights'>戻る</a>
         </div>
     </body>
 </html>

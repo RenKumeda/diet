@@ -9,6 +9,13 @@ class Weight extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'date',
+        'now',
+        'goal',
+        'difference',
+    ];
+    
     public function getPaginateByLimit(int $limit_count = 5)
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);

@@ -17,6 +17,13 @@ class sleepPostController extends Controller
         return view('Sleep.create');
     }
     
+    public function store(Sleep $sleep, Request $request)
+    {
+        $input = $request['sleep'];
+        $sleep->fill($input)->save();
+        return redirect('/sleeps');
+    }
+    
     public function show(Sleep $sleep)
     {
         return view('Sleep.show')->with(['sleep' => $sleep]);
