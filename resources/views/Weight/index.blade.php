@@ -8,12 +8,15 @@
     </head>
     <body>
         <h1>weight</h1>
-        <a href="/Weight.create">create</a>
+        <a href="/weight/create">create</a>
         <div class="weights">
             @foreach ($weights as $weight)
                 <div class="weight">
-                    <a href="/weights/{{ $weight->id }}"><h2 class='title'>{{ $weight->title }}</h2></a>
-                    <p class="body">{{ $weight->body }}</p>
+                    <a href="/weights/{{ $weight->id }}"></a>
+                    <p class="">{{ $weight->date }}</p>
+                    <p class="">{{ $weight->now }}kg</p>
+                    <p class="">{{ $weight->goal }}kg</p>
+                    <p class="">{{ $weight->difference }}kg</p>
                 </div>
             @endforeach
         </div>

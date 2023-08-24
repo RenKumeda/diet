@@ -33,27 +33,33 @@ Route::middleware('auth')->group(function () {
     //meal投稿関連のルーティング
     Route::get('/meals', [mealPostController::class, 'index'])->name('Meal.index');
     //meal投稿保存のルーティング
-    Route::post('/meals', [mealPostController::class, 'store'])->name('Meal.store');
+    Route::post('/meals', [mealPostController::class, 'store']);
     //meal投稿作成画面を表示するルーティング
-    Route::get('/meal/create', [mealPostController::class, 'create']);
+    Route::get('/meal/create', [mealPostController::class, 'create'])->name('Meal.create');
     //meal投稿の詳細画面を表示するルーティング
     Route::get('/Meal/{meal}', [mealPostController::class, 'show'])->name('Meal.show');
     //training投稿関連のルーティング
     Route::get('/trainings', [trainingPostController::class, 'index'])->name('Training.index');
+    //training投稿保存のルーティング
+    Route::post('/trainings', [trainingPostController::class, 'store']);
     //ttraining投稿作成画面を表示するルーティング
-    Route::get('/Training/create', [trainingPostController::class, 'create'])->name('Training.create');
+    Route::get('/training/create', [trainingPostController::class, 'create'])->name('Training.create');
     //training投稿の詳細画面を表示するルーティング
     Route::get('/Training/{training}', [trainingPostController::class, 'show'])->name('Training.show');
     //sleep投稿関連のルーティング
     Route::get('/sleeps', [sleepPostController::class, 'index'])->name('Sleep.index');
+    //sleep投稿保存のルーティング
+    Route::post('/sleeps', [sleepPostController::class, 'store']);
     //sleep投稿作成画面を表示するルーティング
-    Route::get('/Sleep/create', [sleepPostController::class, 'create'])->name('Sleep.create');
+    Route::get('/sleep/create', [sleepPostController::class, 'create'])->name('Sleep.create');
     //sleep投稿の詳細画面を表示するルーティング
     Route::get('/Sleep/{sleep}', [sleepPostController::class, 'show'])->name('Sleep.show');
     //weight投稿関連のルーティング
     Route::get('/weights', [weightPostController::class, 'index'])->name('Weight.index');
+    //weight投稿保存のルーティング
+    Route::post('/weights', [weightPostController::class, 'store']);
     //weight投稿作成画面を表示するルーティング
-    Route::get('/Weight/create', [weightPostController::class, 'create'])->name('Weight.create');
+    Route::get('/weight/create', [weightPostController::class, 'create'])->name('Weight.create');
     //weight投稿の詳細画面を表示するルーティング
     Route::get('/Weight/{weight}', [weightPostController::class, 'show'])->name('Weight.show');
 });

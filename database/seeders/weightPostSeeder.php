@@ -17,7 +17,7 @@ class weightPostSeeder extends Seeder
     {
         DB::table('weights')->insert([
             'date' => '2023-8-20',
-            'weight' => 70,
+            'now' => 70,
             'goal' => 65,
             'difference' => 5,
             ]);

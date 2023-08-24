@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('weights', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->integer('weight');
+            $table->integer('now');
             $table->integer('goal');
             $table->integer('difference');
             $table->timestamps();
