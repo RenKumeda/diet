@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('weights', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->integer('now');
-            $table->integer('goal');
-            $table->integer('difference');
+            $table->string('title', 50);
+            $table->string('body', 150);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weights');
+        Schema::dropIfExists('posts');
     }
 };

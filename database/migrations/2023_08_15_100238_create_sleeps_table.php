@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('time');
             $table->integer('goal');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

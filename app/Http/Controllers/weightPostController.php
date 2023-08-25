@@ -28,4 +28,11 @@ class weightPostController extends Controller
     {
         return view('Weight.show')->with(['weight' => $weight]);
     }
+    
+    public function delete(Weight $weight)
+    {
+        $weight->delete();
+        return redirect('/weights');
+    }
+
 }

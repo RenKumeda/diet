@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(mealPostSeeder::class);
+        $this->call(postPostSeeder::class);
         $this->call(trainingPostSeeder::class);
         $this->call(sleepPostSeeder::class);
         $this->call(weightPostSeeder::class);

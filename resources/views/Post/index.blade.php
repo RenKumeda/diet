@@ -2,30 +2,28 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>sleep</title>
+        <title>post</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Sleep</h1>
-        <a href="/sleep/create">create</a>
-        <div class="sleeps">
-            @foreach ($sleeps as $sleep)
-                <div class="sleep">
-                    <a href="/sleep/{{ $sleep->id }}"></a>
-                    <p class="">{{ $sleep->date }}</p>
-                    <p class="">{{ $sleep->time }}h</p>
-                    <p class="">{{ $sleep->goal }}h</p>
-                    <form action="/Sleep/{{ $sleep->id }}" id="form_{{ $sleep->id }}" method="POST">
+        <h1>Post</h1>
+        <a href="/post/create">create</a>
+        <div class='posts'>
+            @foreach ($posts as $post)
+                <div class='post'>
+                    <a href="/posts/{{ $post->id }}"><h2 class="title">{{ $post->title }}</h2></a>
+                    <p class="">{{ $post->body }}</p>
+                    <form action="/Post/{{ $post->id }}" id="form_{{ $post->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $sleep->id }})">delete</button> 
+                        <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                     </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
-            {{ $sleeps->links() }}
+            {{ $posts->links() }}
         </div>
         <script>
             function deletePost(id) {

@@ -23,11 +23,25 @@
                     @endif
                     <p class="">{{ $meal->calorie }}kcal</p>
                     <p class="">{{ $meal->goal }}kcal</p>
+                    <form action="/Meal/{{ $meal->id }}" id="form_{{ $meal->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deletePost({{ $meal->id }})">delete</button> 
+                    </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
             {{ $meals->links()}}
         </div>
+        <script>
+            function deletePost(id) {
+                'use strict'
+        
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
