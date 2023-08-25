@@ -28,4 +28,10 @@ class mealPostController extends Controller
     {
         return view('Meal.show')->with(['meal' => $meal]);
     }
+    
+    public function delete(Meal $meal)
+    {
+        $meal->delete();
+        return redirect('/meals');
+    }
 }

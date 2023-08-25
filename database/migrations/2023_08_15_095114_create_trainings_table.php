@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('calorie');
             $table->integer('goal');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

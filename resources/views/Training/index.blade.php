@@ -17,11 +17,25 @@
                     <p class="">{{ $training->time }}</p>
                     <p class="">{{ $training->calorie }}kcal</p>
                     <p class="">{{ $training->goal }}kcal</p>
+                    <form action="/Training/{{ $training->id }}" id="form_{{ $training->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deletePost({{ $training->id }})">delete</button> 
+                    </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
             {{ $trainings->links()}}
         </div>
+         <script>
+            function deletePost(id) {
+                'use strict'
+        
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
