@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="footer">
-            <a href='/'>戻る</a>
+            <a href='/sleeps/'>戻る</a>
         </div>
     </body>
 </html>

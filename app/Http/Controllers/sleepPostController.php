@@ -29,7 +29,7 @@ class sleepPostController extends Controller
         return view('Sleep.show')->with(['sleep' => $sleep]);
     }
     
-    public function delete(Sleep $sleep)
+    public function destroy(Sleep $sleep)
     {
         $sleep->delete();
         return redirect('/sleeps');

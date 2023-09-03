@@ -31,7 +31,7 @@ class trainingPostController extends Controller
         return view('Training.show')->with(['training' => $training]);
     }
     
-    public function delete(Training $training)
+    public function destroy(Training $training)
     {
         $training->delete();
         return redirect('/trainings');

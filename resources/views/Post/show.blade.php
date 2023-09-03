@@ -16,8 +16,19 @@
                 <p class="body">{{ $post->body }}</p>
             </div>
         </div>
+        <div class="comment-area">
+            @foreach($post->comments as $comment)
+                <p>{{ $comment->user->name }}</p>
+                <p>{{ $comment->body }}</p>
+            @endforeach
+        </div>
+        <form action={{"/comments/".$post->id }} method='POST'>
+            @csrf
+            <input type="text" name="comment[body]" placeholder="コメントを記入してください。">
+            <input type="submit" value="送信">
+        </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/posts">戻る</a>
         </div>
     </body>
 </html>

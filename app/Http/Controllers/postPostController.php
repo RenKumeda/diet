@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class postPostController extends Controller
@@ -29,7 +30,7 @@ class postPostController extends Controller
         return view('Post.show')->with(['post' => $post]);
     }
     
-    public function delete(Post $post)
+    public function destroy(Post $post)
     {
         $post->delete();
         return redirect('/posts');
