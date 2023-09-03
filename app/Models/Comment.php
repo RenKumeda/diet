@@ -6,23 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
     use SoftDeletes;
     
     protected $fillable = [
-        'title',
+        'post_id',
+        'user_id',
         'body',
         ];
     
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function user()
     {
-        return $this->orderBy('updated_at', 'DESC')->Paginate($limit_count);
-    }
-    
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(User::class);
     }
 }
