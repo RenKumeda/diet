@@ -12,8 +12,11 @@
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <a href="/posts/{{ $post->id }}"><h2 class="title">{{ $post->title }}</h2></a>
+                    <a href="/posts/{{ $post->id }}">
+                        <h2 class="title">{{ $post->title }}</h2>
+                    </a>
                     <p class="">{{ $post->body }}</p>
+                    <button onclic='like({{$post->id}})'>いいね</button>
                     <form action="/Post/{{ $post->id }}" id="form_{{ $post->id }}" method="POST">
                         @csrf
                         @method('DELETE')

@@ -17,7 +17,7 @@ class Comment extends Model
         'body',
         ];
     
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
