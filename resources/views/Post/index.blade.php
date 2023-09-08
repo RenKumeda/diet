@@ -16,14 +16,36 @@
                         <h2 class="title">{{ $post->title }}</h2>
                     </a>
                     <p class="">{{ $post->body }}</p>
-                    <button onclic='like({{$post->id}})'>いいね</button>
                     <form action="/Post/{{ $post->id }}" id="form_{{ $post->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                     </form>
                 </div>
+                <div>
+                    <button>いいね</button>
+                </div>
             @endforeach
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script>
+                function like(postId) {
+                  $.ajax({
+                    headers: {
+                      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    url: `/like/${postId}`,
+                    type: "POST",
+                  })
+                    .done(function (data, status, xhr) {
+                      console.log(data);
+                    })
+                    .fail(function (xhr, status, error) {
+                      console.log();
+                    });
+                }
+            </script>
+            
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
