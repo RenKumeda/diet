@@ -10,7 +10,7 @@
     @foreach($users as $user)
     <div>
       <div>{{$user->name}}</div>
-      <button>フォローする</button>
+      <button>フォロー</button>
     </div>
     @endforeach
     
