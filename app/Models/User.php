@@ -48,29 +48,4 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Follow', 'follows', 'follower_id', 'followee_id',);
     }
     
-    //いいねに関するリレーション
-    public function likes()
-    {
-        return $this->belongsToMany('App\Models\Post', 'likes', 'user_id', 'post_id')->withTimestamps();
-    }
-    
-    public function islikes($postId)
-    {
-        return $this->likes()->where('post_id', $postId)->exists();
-    }
-    
-    public function like($postId)
-    {
-        if($this->islike($postId)){
-        } else {
-            $this->likes()->attach($postId);
-        }
-    }
-    
-    public function unlike($postId)
-    {
-        if($this->islike($postId)){
-        } else {
-        }
-    }
 }

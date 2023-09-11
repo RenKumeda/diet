@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(postPostSeeder::class);
         $this->call(trainingPostSeeder::class);
         $this->call(sleepPostSeeder::class);
+        $this->call(weightLogSeeder::class);
         $this->call(weightPostSeeder::class);
     }
 }
