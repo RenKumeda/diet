@@ -18,7 +18,6 @@
     <script>
       function follow(userId) {
         $.ajax({
-          // これがないと419エラーが出ます
           headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
           url: `/follow/${userId}`,
           type: "POST",
@@ -31,5 +30,6 @@
           });
       }
     </script>
+    
     </body>
 </html>

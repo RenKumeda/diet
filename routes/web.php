@@ -4,11 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\followPostController;
 use App\Http\Controllers\commentPostController;
+use App\Http\Controllers\likePostController;
 use App\Http\Controllers\mealPostController;
 use App\Http\Controllers\postPostController;
 use App\Http\Controllers\sleepPostController;
 use App\Http\Controllers\trainingPostController;
 use App\Http\Controllers\userPostController;
+use App\Http\Controllers\weightLogController;
 use App\Http\Controllers\weightPostController;
 
 /*
@@ -34,6 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //chartjsに関するルーティング
+    Route::get('/chartjs', function () {
+        return view('chartjs');
+    });
+    
     //comment投稿保存のルーティング
     Route::post('/comments/{post}', [commentPostController::class, 'store']);
     
@@ -46,8 +54,7 @@ Route::middleware('auth')->group(function () {
     });
     
     //likeに関するルーティング
-    Route::post('/like/{postId}', [likePostController::class, 'store']);
-    Route::post('/unliike/{postId}', [LikePostController::class, 'destoroy']);
+    Route::post('/like', [likePostController::class, 'like']);
     
     //meal投稿関連のルーティング
     Route::get('/meals', [mealPostController::class, 'index'])->name('Meal.index');
@@ -86,6 +93,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/weight/create', [weightPostController::class, 'create'])->name('Weight.create');
     Route::get('/weights/{weight}', [weightPostController::class, 'show'])->name('Weight.show');
     Route::delete('/Weight/{weight}', [weightPostController::class,'destroy']);
+    
+    //weight_logに関するルーティング
+    Route::get('/log/', [weightLogController::class, "show"]);
 });
 
 require __DIR__.'/auth.php';
