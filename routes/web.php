@@ -57,42 +57,52 @@ Route::middleware('auth')->group(function () {
     Route::post('/like', [likePostController::class, 'like']);
     
     //meal投稿関連のルーティング
-    Route::get('/meals', [mealPostController::class, 'index'])->name('Meal.index');
-    Route::post('/meals', [mealPostController::class, 'store']);
-    Route::get('/meal/create', [mealPostController::class, 'create'])->name('Meal.create');
-    Route::get('/meals/{meal}', [mealPostController::class, 'show'])->name('Meal.show');
-    Route::delete('/Meal/{meal}', [mealPostController::class,'destroy']);
+    Route::controller(mealPostController::class)->middleware(['auth'])->group(function(){
+        Route::get('/meals', 'index')->name('Meal.index');
+        Route::post('/meals', 'store');
+        Route::get('/meal/create', 'create')->name('Meal.create');
+        Route::get('/meals/{meal}', 'show')->name('Meal.show');
+        Route::delete('/Meal/{meal}', 'destroy');
+    });
 
-  //post投稿関連のルーティング
-    Route::get('/posts', [postPostController::class, 'index'])->name('Post.index');
-    Route::post('/posts', [postPostController::class, 'store']);
-    Route::get('/post/create', [postPostController::class, 'create'])->name('Post.create');
-    Route::get('/posts/{post}', [postPostController::class, 'show'])->name('Post.show');
-    Route::delete('/Post/{post}', [postPostController::class,'destroy']);
-
+    //post投稿関連のルーティング
+    Route::controller(postPostController::class)->middleware(['auth'])->group(function(){
+        Route::get('/posts', 'index')->name('Post.index');
+        Route::post('/posts', 'store');
+        Route::get('/post/create', 'create')->name('Post.create');
+        Route::get('/posts/{post}', 'show')->name('Post.show');
+        Route::delete('/Post/{post}', 'destroy');
+    });
+   
     //sleep投稿関連のルーティング
-    Route::get('/sleeps', [sleepPostController::class, 'index'])->name('Sleep.index');
-    Route::post('/sleeps', [sleepPostController::class, 'store']);
-    Route::get('/sleep/create', [sleepPostController::class, 'create'])->name('Sleep.create');
-    Route::get('/sleeps/{sleep}', [sleepPostController::class, 'show'])->name('Sleep.show');
-    Route::delete('/Sleep/{sleep}', [sleepPostController::class,'destroy']);
+    Route::controller(weightPostController::class)->middleware(['auth'])->group(function(){
+        Route::get('/sleeps', 'index')->name('Sleep.index');
+        Route::post('/sleeps', 'store');
+        Route::get('/sleep/create', 'create')->name('Sleep.create');
+        Route::get('/sleeps/{sleep}', 'show')->name('Sleep.show');
+        Route::delete('/Sleep/{sleep}','destroy');
+    });
 
     //training投稿関連のルーティング
-    Route::get('/trainings', [trainingPostController::class, 'index'])->name('Training.index');
-    Route::post('/trainings', [trainingPostController::class, 'store']);
-    Route::get('/training/create', [trainingPostController::class, 'create'])->name('Training.create');
-    Route::get('/trainings/{training}', [trainingPostController::class, 'show'])->name('Training.show');
-    Route::delete('/Training/{training}', [trainingPostController::class,'destroy']);
+    Route::controller(trainingPostController::class)->middleware(['auth'])->group(function(){
+        Route::get('/trainings', 'index')->name('Training.index');
+        Route::post('/trainings', 'store');
+        Route::get('/training/create', 'create')->name('Training.create');
+        Route::get('/trainings/{training}', 'show')->name('Training.show');
+        Route::delete('/Training/{training}', 'destroy');
+    });
 
     //userの一覧ページを表示するルーティング
     Route::get('/users', [userPostController::class, 'index']);
 
     //weight投稿関連のルーティング
-    Route::get('/weights', [weightPostController::class, 'index'])->name('Weight.index');
-    Route::post('/weights', [weightPostController::class, 'store']);
-    Route::get('/weight/create', [weightPostController::class, 'create'])->name('Weight.create');
-    Route::get('/weights/{weight}', [weightPostController::class, 'show'])->name('Weight.show');
-    Route::delete('/Weight/{weight}', [weightPostController::class,'destroy']);
+    Route::controller(weightPostController::class)->middleware(['auth'])->group(function(){
+        Route::get('/weights', 'index')->name('Weight.index');
+        Route::post('/weights', 'store');
+        Route::get('/weight/create', 'create')->name('Weight.create');
+        Route::get('/weights/{weight}', 'show')->name('Weight.show');
+        Route::delete('/Weight/{weight}', 'destroy');
+    });
     
     //weight_logに関するルーティング
     Route::get('/log/', [weightLogController::class, "show"]);

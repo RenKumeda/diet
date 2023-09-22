@@ -21,7 +21,7 @@
         			    {
         			        label: "体重の遷移",
         			        //dataに配列で数値を入れるとグラフが完成する
-        			        data:  [50,60,70,],
+        			        data:  [50,60,70,80,],
         			        borderColor: "rgba(255,0,0,1)",
         			        backgroundColor: "rgba(0,0,0,0)",
         			    }
